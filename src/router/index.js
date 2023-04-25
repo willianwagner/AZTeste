@@ -1,40 +1,52 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+
+//import store from '@/store/index'
+
+import AuthLayout from '@/layouts/auth/AuthLayout'
+import GuestLayout from '@/layouts/guest/GuestLayout'
 import LoginForm from '@/components/LoginForm'
-import NotFound from '@/components/NotFound'
-import store from '@/store/index'
+import AboutAuth from '@/views/auth/AboutAuth.vue'
+import HomeAuth from '@/views/auth/HomeAuth.vue'
 
 
+// Lets create default route, to default layout
+const defaultRoute = [
+  {
+    path: '/painel',
+    name: 'painel',
+    component: AuthLayout,
+    children: [
+      {
+        path: '',
+        component: HomeAuth,
+      },
+      {
+        path: 'about',
+        component: AboutAuth
+      }
 
-const routes = [
-  
+    ]
+
+  },
+
   {
     path: '/',
     name: 'login',
-    component: LoginForm
-  },
+    component: GuestLayout,
+    children: [
+      {
+        path: '',
+        component: LoginForm,
+      },
+    
 
-
-  {
-    path: '/home',
-    name: 'home',
-    meta: { requiresAuth: true },
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
+    ]
   },
-  {
-    // Rota curinga - deve estar no final do array de rotas
-    path: '/:pathMatch(.*)*',
-    name: 'NotFound',
-    component: NotFound
-  }
-  
 ]
 
-
-
+console.log(defaultRoute);
+const routes = defaultRoute
 
 const router = createRouter({
   history: createWebHistory(),
@@ -44,7 +56,7 @@ const router = createRouter({
 
 export default router
 
-
+/* 
 
 router.beforeEach((to, from, next) => {
 
@@ -62,4 +74,4 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
-})
+}) */
