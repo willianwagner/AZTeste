@@ -29,9 +29,7 @@ export default createStore({
 
     gravaNotificacao(state, data) {
       state.notificacao.push(data)
-      setTimeout(() => {
-        state.notificacao = state.notificacao.filter(notificacao => notificacao.id != data.id)
-      }, 3000)
+     
     },
 
     limpaNotificacao(state, data) {
@@ -48,6 +46,10 @@ export default createStore({
     notificarUsuario({ commit }, data) {
       data.id = new Date().getTime()
       commit('gravaNotificacao', data)
+      
+      setTimeout(() => {
+        commit('limpaNotificacao', data.id)
+      }, 3000)
     },
 
     limparNotificacoes({ commit }, data) {

@@ -5,14 +5,14 @@
       <form @submit="login">
         <div class="box__input">
           <label for="usuario">Usuário</label>
-          <input type="email" name="usuario" :value="form.email" placeholder="Informe o usuário" required>
+          <input type="email" name="usuario" v-model="form.email" placeholder="Informe o usuário" required>
 
         </div>
         <div class="box__input">
           <label for="senha">Senha</label>
-          <input type="password" name="password" :value="form.password" placeholder="Informe a senha" required>
+          <input type="password" name="password" v-model="form.password" placeholder="Informe a senha" required>
         </div>
-
+  
         <button type="submit" v-if="isLoad">Entrar</button>
         <LoadIcon v-else></LoadIcon>
       </form>
@@ -26,7 +26,7 @@
 
 import httpClient from '@/constants/index'
 import LoadIcon from './LoadIcon.vue';
-//import NotificacaoFlag from '@/components/NotificacaoFlag.vue' 
+ 
 export default {
   name: 'LoginForm',
   components: {
@@ -36,22 +36,21 @@ export default {
     return {
       isLoad: true,
       form: {
-        email: 'eve.holt@reqres.in',
-        password: '123'
+        email: '',
+        password: ''
       }
     }
   },
-  created() {
 
-  },
   methods: {
     async login(event) {
       event.preventDefault();
       const escopo = this
       escopo.isLoad = !escopo.isLoad
-
+      console.log(escopo.form);
       try {
         const response = await httpClient.post('/login', escopo.form);
+        console.log(response, 'response Login')
         this.$store.dispatch('gravarToken', response.data.token)
         this.$router.push('home')
 

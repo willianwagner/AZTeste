@@ -26,8 +26,7 @@ export default defineComponent({
     }
   },
   methods:{
-    close(id){  
-  
+    close(id){    
       this.$store.dispatch('limparNotificacoes',id)
     }
   },
