@@ -52,7 +52,7 @@ export default {
         const response = await httpClient.post('/login', escopo.form);
         console.log(response, 'response Login')
         this.$store.dispatch('gravarToken', response.data.token)
-        this.$router.push('painel')
+        this.$router.push('/')
 
       } catch (error) {
         console.error(error);

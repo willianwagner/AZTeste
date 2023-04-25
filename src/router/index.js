@@ -6,20 +6,23 @@ import { createRouter, createWebHistory } from 'vue-router'
 import AuthLayout from '@/layouts/auth/AuthLayout'
 import GuestLayout from '@/layouts/guest/GuestLayout'
 import LoginForm from '@/components/LoginForm'
+import NotFound from '@/components/NotFound'
 import AboutAuth from '@/views/auth/AboutAuth.vue'
-import HomeAuth from '@/views/auth/HomeAuth.vue'
+
+import store from '@/store/index'
 
 
 // Lets create default route, to default layout
 const defaultRoute = [
   {
-    path: '/painel',
+    path: '/',
     name: 'painel',
     component: AuthLayout,
+    meta: { requiresAuth: true },
     children: [
       {
         path: '',
-        component: HomeAuth,
+        component: () => import('@/views/auth/HomeAuth.vue')
       },
       {
         path: 'about',
@@ -31,8 +34,9 @@ const defaultRoute = [
   },
 
   {
-    path: '/',
+    path: '/login',
     name: 'login',
+    meta: { guest: true },
     component: GuestLayout,
     children: [
       {
@@ -43,6 +47,12 @@ const defaultRoute = [
 
     ]
   },
+
+  {    
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
+  }
 ]
 
 console.log(defaultRoute);
@@ -56,22 +66,24 @@ const router = createRouter({
 
 export default router
 
-/* 
 
 router.beforeEach((to, from, next) => {
 
   if (to.matched.some(record => record.meta.requiresAuth)) {
 
-    if (!store.getters.isAuth ) {
-    
-      next({
-        path: '/',
-       
-      })
-    } else {
+    if (store.getters.isAuth ) {
       next()
+      return
     }
-  } else {
+
+    next('/login')
+  } else if (to.matched.some(record => record.meta.guest)) {
+    if (store.getters.isAuth ) {
+      next('/')
+      return
+    }
+    next()
+  }else {
     next()
   }
-}) */
+})

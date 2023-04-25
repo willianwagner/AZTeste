@@ -2,14 +2,20 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    token: '',
-    auth: false,
+    user: {
+      data: {},
+      token: ''
+    },
     paginacao: [],
     notificacao: []
   },
   getters: {
     isAuth(state) {
-      return state.auth
+      let user = localStorage.getItem('user')
+      if (user) {
+        state.user = JSON.parse(user)
+      }
+      return !!state.user.token
     },
     getNotificacoes(state) {
       return state.notificacao
@@ -17,14 +23,14 @@ export default createStore({
   },
   mutations: {
     updateToken(state, data) {
-      state.token = data
+      state.user.token = data
+      localStorage.setItem('user', JSON.stringify(state.user))
     },
 
-    isLogggedIn(state) {
-      state.auth = false
-      if (state.token.length)
-        state.auth = true
-
+    limpaToken(state) {
+      console.log(state,'mut')
+      state.user = {}
+      localStorage.removeItem('user');      
     },
 
     gravaNotificacao(state, data) {
@@ -39,7 +45,6 @@ export default createStore({
   actions: {
     gravarToken({ commit }, data) {
       commit('updateToken', data)
-      commit('isLogggedIn')
 
     },
 
@@ -54,6 +59,10 @@ export default createStore({
 
     limparNotificacoes({ commit }, data) {
       commit('limpaNotificacao', data)
+    },
+
+    limparToken({commit}){
+      commit('limpaToken')
     }
 
   },
