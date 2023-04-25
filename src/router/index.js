@@ -1,25 +1,57 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+
+import LoginForm from '@/components/LoginForm'
+import store from '@/store/index'
+
+
 
 const routes = [
+  
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'login',
+    component: LoginForm
   },
+
+
   {
-    path: '/about',
-    name: 'about',
+    path: '/home',
+    name: 'home',
+    meta: { requiresAuth: true },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
   }
 ]
 
+
+
+
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 
+
 export default router
+
+
+
+router.beforeEach((to, from, next) => {
+
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+
+    if (!store.getters.isAuth ) {
+    
+      next({
+        path: '/',
+       
+      })
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
+})
