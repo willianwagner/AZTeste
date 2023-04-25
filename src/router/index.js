@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import LoginForm from '@/components/LoginForm'
+import NotFound from '@/components/NotFound'
 import store from '@/store/index'
 
 
@@ -22,7 +23,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
+  },
+  {
+    // Rota curinga - deve estar no final do array de rotas
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
   }
+  
 ]
 
 
