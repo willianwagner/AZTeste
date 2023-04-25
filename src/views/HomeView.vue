@@ -18,7 +18,8 @@ export default {
     return{}
   },
   created(){
-    console.log(this.$store.state)
+    const newToken = 'TokenNovoQueVeioDaApi'
+    this.$store.commit('updateToken',newToken)
   }
 }
 </script>

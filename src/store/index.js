@@ -8,6 +8,10 @@ export default createStore({
   getters: {
   },
   mutations: {
+    updateToken(state,data){
+      state.token = data
+    console.log('agora vai',data)
+    }
   },
   actions: {
   },
