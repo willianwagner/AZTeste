@@ -4,7 +4,7 @@
     <div class="box__center">
       <div class="box__form">
         <div class="logo__az d-flex justify-center">
-          <img alt="Logo AZ" class="image__fluida" src="@/assets/imgs/logo_az.png"/>
+          <img alt="Logo AZ" class="imagem__fluida" src="@/assets/imgs/logo_az.png"/>
           <div class="slogan__az"> 
             <p>
               Tecnologia em Gestão
@@ -65,7 +65,7 @@ export default {
         const response = await httpClient.post('/login', escopo.form);
         console.log(response, 'response Login')
         this.$store.dispatch('gravarToken', response.data.token)
-        this.$router.push('/')
+        this.$router.push('/inicio')
 
       } catch (error) {
         console.error(error);
@@ -94,10 +94,7 @@ export default {
   font-size: large;
   font-weight: bold;
 }
-.image__fluida{
-  max-width: 100%;
-  height: auto;
-}
+
 .login__form{
   height: 100vh;
   margin: 0;

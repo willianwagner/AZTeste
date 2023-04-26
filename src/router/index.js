@@ -5,24 +5,24 @@ import AuthLayout from '@/layouts/auth/AuthLayout'
 import GuestLayout from '@/layouts/guest/GuestLayout'
 import LoginForm from '@/views/LoginForm'
 import NotFound from '@/views/NotFound'
-import AboutAuth from '@/views/auth/AboutAuth.vue'
 
 import store from '@/store/index'
 
 const routes = [
   {
-    path: '/',
-    name: 'painel',
+    path: '/inicio',
+    name: 'Bem Vindo',
     component: AuthLayout,
     meta: { requiresAuth: true },
     children: [
       {
-        path: '',
+        path: '/',
         component: () => import('@/views/auth/HomeAuth.vue')
       },
       {
-        path: 'about',
-        component: AboutAuth
+        path: 'candidatos',
+        name:'Listagem de Candidatos',
+        component: () => import('@/views/auth/candidatos/IndexCandidatos.vue')
       }
 
     ]
@@ -36,7 +36,7 @@ const routes = [
     component: GuestLayout,
     children: [
       {
-        path: '',
+        path: '/',
         component: LoginForm,
       },
     

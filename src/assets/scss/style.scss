@@ -18,8 +18,8 @@ body {
     height: 100%;
     display: grid;
     grid-template-columns: 200px 1fr;
-    grid-template-rows: 75px 1fr 75px; 
-    grid-gap: 0.5rem;
+    grid-template-rows: 75px 1fr 60px;
+
     grid-template-areas:
         'aside header'
         'aside main'
@@ -28,7 +28,7 @@ body {
     header {
         grid-area: header;
         background-color: $color-light;
-       
+
     }
 
     aside {
@@ -41,13 +41,10 @@ body {
         background-color: $color-light;
     }
 
-   
-
     main {
-        height: calc(100vh - 150px - 1rem);
+        height: calc(100vh - 135px);
         background-color: $color-white;
     }
 
 
 }
-

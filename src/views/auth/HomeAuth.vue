@@ -1,3 +1,3 @@
 <template>
-  <h2>Home page</h2>
+  <h2>Bem Vindo</h2>
 </template>
