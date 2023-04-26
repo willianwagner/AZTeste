@@ -33,6 +33,13 @@
     color: $color-white; 
   }
 
+  .btn__adicionar{
+    color:$color-primary;
+    font-weight: bold;
+    font-size: $font-size-medium;
+    
+  }
+
   footer {
     display: flex;
     justify-content: space-between;
