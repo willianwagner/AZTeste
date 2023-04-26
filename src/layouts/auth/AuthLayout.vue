@@ -1,27 +1,39 @@
 <template>
-    <div>
-        layout do auth<br />
-        <router-link to="/about">About</router-link><br />
-        <router-link to="/">Home</router-link><br />
-        <button type="button" @click="logout()">Sair</button>
+    <div class="container__auth">
+       <HeaderAuth></HeaderAuth>
+        <SidebarAuth></SidebarAuth>
+        <main>
+            <router-view />
+        </main>
+        <FooterAuth>Foot</FooterAuth>
 
-        <router-view />
+
+
 
     </div>
 </template>
 <script>
+import HeaderAuth from '@/components/organisms/HeaderAuth.vue';
+import SidebarAuth from '@/components/organisms/SidebarAuth.vue';
+import FooterAuth from '@/components/organisms/FooterAuth.vue';
+
 export default {
-    
-    data(){
-        return{}
+    components:{
+        HeaderAuth,
+        SidebarAuth,
+        FooterAuth,
     },
-    methods:{
-        logout(){
-          
+
+    data() {
+        return {}
+    },
+    methods: {
+        logout() {
+
             this.$store.dispatch('limparToken')
             this.$router.push('/login')
         }
     }
-    
-  }
-  </script>
+
+}
+</script>

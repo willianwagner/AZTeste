@@ -1,0 +1,53 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #e2e2e2;
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+
+
+}
+
+.container__auth {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 75px 1fr 75px; 
+    grid-gap: 0.5rem;
+    grid-template-areas:
+        'aside header'
+        'aside main'
+        'aside footer';
+
+    header {
+        grid-area: header;
+        background-color: $color-light;
+       
+    }
+
+    aside {
+        grid-area: aside;
+        background-color: $color-primary;
+    }
+
+    footer {
+        grid-area: footer;
+        background-color: $color-light;
+    }
+
+   
+
+    main {
+        height: calc(100vh - 150px - 1rem);
+        background-color: $color-white;
+    }
+
+
+}
+

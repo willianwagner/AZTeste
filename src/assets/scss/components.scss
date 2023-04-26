@@ -1,0 +1,33 @@
+.btn {   
+    border: none; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+
+  .btn__primary{
+    background-color: $color-primary; 
+    color: $color-white; 
+  }
+
+  .btn__secondary{
+    background-color: $color-secondary; 
+    color: $color-white; 
+  }
+
+  .btn__danger{
+    background-color: $color-danger; 
+    color: $color-white; 
+  }
+  .btn__success{
+    background-color: $color-success; 
+    color: $color-white; 
+  }

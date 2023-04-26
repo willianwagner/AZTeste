@@ -1,0 +1,42 @@
+/* 
+
+Breakpoints em:
+
+sm: 576px;
+md: 768px;
+lg: 992px;
+xl: 1200px;
+
+*/
+
+
+
+
+@media screen and (max-width: $breakpoint-xl) {}
+
+
+@media screen and (max-width: $breakpoint-lg) {
+   
+
+}
+
+
+@media screen and (max-width: $breakpoint-md) {
+    h2 {
+        color: green;
+    }
+
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+    .login__form{
+        form{
+            width: 280px;
+        }
+    }
+
+    .container__auth{
+        grid-template-columns: 40px 1fr;
+    }
+
+}

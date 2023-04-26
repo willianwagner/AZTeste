@@ -1,19 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 
-//import store from '@/store/index'
-
 import AuthLayout from '@/layouts/auth/AuthLayout'
 import GuestLayout from '@/layouts/guest/GuestLayout'
-import LoginForm from '@/components/LoginForm'
-import NotFound from '@/components/NotFound'
+import LoginForm from '@/views/LoginForm'
+import NotFound from '@/views/NotFound'
 import AboutAuth from '@/views/auth/AboutAuth.vue'
 
 import store from '@/store/index'
 
-
-// Lets create default route, to default layout
-const defaultRoute = [
+const routes = [
   {
     path: '/',
     name: 'painel',
@@ -55,8 +51,8 @@ const defaultRoute = [
   }
 ]
 
-console.log(defaultRoute);
-const routes = defaultRoute
+
+
 
 const router = createRouter({
   history: createWebHistory(),
