@@ -1,6 +1,5 @@
 <template>
-  <div class="login__form">
- 
+  <div class="login__form"> 
     <div class="box__center">
       <div class="box__form">
         <div class="logo__az d-flex justify-center">
@@ -57,15 +56,14 @@ export default {
 
   methods: {
     async login(event) {
-      event.preventDefault();
-      const escopo = this
-      escopo.isLoad = !escopo.isLoad
-      console.log(escopo.form);
+      event.preventDefault();     
+      this.isLoad = !this.isLoad
+     
       try {
-        const response = await httpClient.post('/login', escopo.form);
-        console.log(response, 'response Login')
+        const response = await httpClient.post('/login', this.form);
+       
         this.$store.dispatch('gravarToken', response.data.token)
-        this.$router.push('/inicio')
+        this.$router.push('/')
 
       } catch (error) {
         console.error(error);
@@ -75,7 +73,7 @@ export default {
         }
 
         this.$store.dispatch('notificarUsuario', notificacao)
-        escopo.isLoad = !escopo.isLoad
+        this.isLoad = !this.isLoad
       }
 
     }

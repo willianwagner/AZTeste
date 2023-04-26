@@ -36,6 +36,17 @@ xl: 1200px;
         .descricao__link{
             display: none;
         }
+        aside{
+            .link.router-link-active::before {
+                background-color: transparent;
+            }
+        }
+        header{
+            justify-content: end;
+            .breadcrumb{
+                display:none;
+            }
+        }
     }
 
  

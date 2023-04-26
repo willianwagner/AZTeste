@@ -20,77 +20,32 @@
                         <span class="descricao__link"> Menu Vazio</span>
                     </router-link>
                 </li>
+                <li>
+                    <a role="button" @click="logout()">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span class="descricao__link"> Sair</span>
+                    </a>
+                </li>
 
             </ul>
         </div>
     </aside>
 </template>
 
-<style scoped>
-.area__logo {
-    width: 50%;
-    padding-top: 20px;
-}
+<script>
 
-.sidebar {
-    width: 100%;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-}
 
-.menu {
-    list-style: none;
-    margin: 25px 0;
-    padding: 0;
-    text-align: left;
-}
+export default { 
 
-.menu li {
-    border-bottom: 1px solid #ddd;
-    position: relative;
-    border-bottom: none;
+    data() {
+        return {}
+    },
+    methods: {
+        logout() {
+            this.$store.dispatch('limparToken')
+            this.$router.push('/login')
+        }
+    }
 
 }
-
-.menu li:last-child {
-    border-bottom: none;
-}
-
-.menu a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #fff;
-}
-
-.menu a:hover {
-    background-color: #035087;
-}
-
-.menu i {
-    margin-right: 10px;
-}
-
-.link {
-    color: #fff;
-}
-
-.link:hover {
-    background-color: #035087;
-}
-
-.link.router-link-active {
-    background-color: #035087;
-}
-
-.link.router-link-active::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 33%;
-    bottom: 0;
-    width: 10px;
-    height: 15px;
-    background-color: #fff;
-}</style>
+</script>

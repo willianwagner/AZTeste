@@ -5,11 +5,7 @@
         <main>
             <router-view />
         </main>
-        <FooterAuth>Foot</FooterAuth>
-
-
-
-
+        <FooterAuth></FooterAuth>
     </div>
 </template>
 <script>
@@ -28,11 +24,7 @@ export default {
         return {}
     },
     methods: {
-        logout() {
-
-            this.$store.dispatch('limparToken')
-            this.$router.push('/login')
-        }
+        
     }
 
 }
