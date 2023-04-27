@@ -138,6 +138,9 @@
     justify-content: space-around;
 }
 
+.justify-end {
+    justify-content: end;
+}
 .align-items-center {
     align-items: center;
 }
@@ -171,4 +174,7 @@
 }
 .font-large{
     font-size: $font-size-large;
+}
+.border-none{
+    border: none;
 }

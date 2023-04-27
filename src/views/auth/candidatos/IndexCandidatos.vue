@@ -100,8 +100,7 @@ export default {
             try {
                 const response = await httpClient.get('/users');
                 this.listaCandidatos = response.data
-                const dadosPagicacao = montarPaginacao(response)    
-         
+                const dadosPagicacao = montarPaginacao(response)          
                 this.$store.dispatch('atualizarPaginacao', dadosPagicacao)
                 this.isLoad = !this.isLoad
 

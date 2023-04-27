@@ -9,12 +9,16 @@
   cursor: pointer;
   transition: background-color 0.2s ease;
   border-radius: 5px;
+  background-color: $color-light;
 }
 
 .btn:hover {
   opacity: 0.9;
 }
-
+.btn__sm{
+  padding: 6px 10px;
+  font-size: $font-size-smaller;
+}
 .btn__primary {
   background-color: $color-primary;
   color: $color-white;

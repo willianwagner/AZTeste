@@ -19,6 +19,9 @@ export default createStore({
     },
     getNotificacoes(state) {
       return state.notificacao
+    },
+    getPaginacao(state) {
+      return state.paginacao
     }
   },
   mutations: {
