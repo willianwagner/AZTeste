@@ -47,11 +47,12 @@ export default defineComponent({
   border-radius: 0.25rem;
   font-size: 1rem;
   position: absolute;
-  top: 5%;
-  right: 5%;
+  top: 7%;
+  right: 1%;
   display: flex;
   justify-content: space-between;
   width: 20%;
+  z-index: 9999;
 
 }
 

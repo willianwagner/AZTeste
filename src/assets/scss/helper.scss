@@ -122,23 +122,28 @@
     margin-bottom: $medium;
 }
 
-.d-flex{
+.d-flex {
     display: flex;
 }
-.justify-center{
+
+.justify-center {
     justify-content: center;
 }
-.justify-between{
+
+.justify-between {
     justify-content: space-between;
 }
-.justify-space-around{
+
+.justify-space-around {
     justify-content: space-around;
 }
-.align-items-center{
+
+.align-items-center {
     align-items: center;
 }
 
-.imagem__fluida{
+.imagem__fluida {
     max-width: 100%;
     height: auto;
-  }
+}
+

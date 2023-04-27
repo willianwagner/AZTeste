@@ -15,7 +15,7 @@
 
                 </li>
                 <li>
-                    <router-link to="/" >
+                    <router-link to="/">
                         <i class="fa fa-inbox" aria-hidden="true"></i>
                         <span class="descricao__link"> Menu Vazio</span>
                     </router-link>
@@ -34,12 +34,8 @@
 
 <script>
 
-
-export default { 
-
-    data() {
-        return {}
-    },
+export default {
+   
     methods: {
         logout() {
             this.$store.dispatch('limparToken')

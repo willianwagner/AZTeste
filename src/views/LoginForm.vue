@@ -1,10 +1,10 @@
 <template>
-  <div class="login__form"> 
+  <div class="login__form">
     <div class="box__center">
       <div class="box__form">
         <div class="logo__az d-flex justify-center">
-          <img alt="Logo AZ" class="imagem__fluida" src="@/assets/imgs/logo_az.png"/>
-          <div class="slogan__az"> 
+          <img alt="Logo AZ" class="imagem__fluida" src="@/assets/imgs/logo_az.png" />
+          <div class="slogan__az">
             <p>
               Tecnologia em Gestão
             </p>
@@ -26,7 +26,6 @@
 
           </div>
         </form>
-
       </div>
 
     </div>
@@ -45,7 +44,7 @@ export default {
   },
   data() {
     return {
-  
+
       isLoad: true,
       form: {
         email: '',
@@ -56,12 +55,12 @@ export default {
 
   methods: {
     async login(event) {
-      event.preventDefault();     
+      event.preventDefault();
       this.isLoad = !this.isLoad
-     
+
       try {
         const response = await httpClient.post('/login', this.form);
-       
+
         this.$store.dispatch('gravarToken', response.data.token)
         this.$router.push('/')
 
@@ -82,22 +81,24 @@ export default {
 }
 </script>
 <style scoped>
-.logo__az{
+.logo__az {
   height: 40px;
 
 }
-.slogan__az{
+
+.slogan__az {
   display: flex;
   align-items: center;
   font-size: large;
   font-weight: bold;
 }
 
-.login__form{
+.login__form {
   height: 100vh;
   margin: 0;
 }
-.box__center { 
+
+.box__center {
   height: 100%;
   display: grid;
   grid-template-columns: 400px;
@@ -121,40 +122,12 @@ export default {
 
 form {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   background-color: #fff;
   width: 400px;
-  padding:3rem;  
+  padding: 3rem;
 }
 
-
-
-label {
-  float: left;
-  padding: 10px 0;
-  margin: 0;
-  font-size: 18px;
-  color: #5e5e5e;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-input {
-  width: 100%;
-  margin-top: 15px;
-  padding: 10px 0;
-  margin: 5px 0;
-  border: none;
-  border-bottom: 1px solid #5e5e5e;
-  outline: none;
-  font-size: 18px;
-  color: #5e5e5e;
-  background: transparent;
-}
-
-input::placeholder {
-  color: #c2c2c2;
-}
 
 
 </style>

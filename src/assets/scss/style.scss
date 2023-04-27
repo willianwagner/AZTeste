@@ -12,8 +12,42 @@ body {
     text-align: center;
     color: #2c3e50;
 }
-a{
-  cursor: pointer;  
+
+a {
+    cursor: pointer;
+}
+
+label {
+    float: left;
+    padding: 10px 0;
+    margin: 0;
+    font-size: $font-size-medium;
+    color: #5e5e5e;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+input {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 0;
+    margin: 5px 0;
+    border: none;
+    border-bottom: 1px solid #5e5e5e;
+    outline: none;
+    font-size: $font-size-small;
+    color: #5e5e5e;
+    background: transparent;
+}
+
+.form__erro {
+    font-size: $font-size-small;
+    color: $color-danger;
+    padding: 10px;
+}
+
+input::placeholder {
+    color: #c2c2c2;
 }
 
 .container__auth {
@@ -29,8 +63,6 @@ a{
 
     header {
         grid-area: header;
-        background-color: $color-light;
-
     }
 
     aside {
