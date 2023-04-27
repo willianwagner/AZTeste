@@ -15,7 +15,11 @@ xl: 1200px;
 
 
 @media screen and (max-width: $breakpoint-md) {
-  
+    main{
+        .avatar__img{
+            display: none;
+        }
+    }  
 
 }
 
@@ -27,6 +31,7 @@ xl: 1200px;
     }
 
     .container__auth{
+        
         grid-template-columns: 40px 1fr;
 
         .area__logo{
@@ -39,6 +44,17 @@ xl: 1200px;
         aside{
             .link.router-link-active::before {
                 background-color: transparent;
+            }
+            .recolher__texto{
+                display: none;
+            }
+            .recolher__icone{
+                display: block;
+            }
+        }
+        main{
+            .avatar__img{
+                display: none;
             }
         }
         header{

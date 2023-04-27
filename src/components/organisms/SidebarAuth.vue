@@ -29,17 +29,28 @@
 
             </ul>
         </div>
+        <button class="btn btn__sm btn__recolher" @click="recolherMenu">
+            <span class="recolher__icone d-none"><i class="fa-solid fa-arrow-right"></i></span>
+            <span class="recolher__texto"> Recolher menu</span>
+        </button>
     </aside>
 </template>
 
 <script>
 
 export default {
-   
+    data() {
+        return {
+            menuRecolhido: false
+        }
+    },
     methods: {
         logout() {
             this.$store.dispatch('limparToken')
             this.$router.push('/login')
+        },
+        recolherMenu() {
+            console.log('fecha')
         }
     }
 
