@@ -51,7 +51,6 @@ footer {
 }
 
 header {
- 
   .path__principal {
     color: $color-primary;
     font-weight: bolder;
@@ -120,7 +119,7 @@ aside {
   }
 
   .link.router-link-active::before {
-    content:  "";
+    content: "";
     position: absolute;
     right: 0;
     top: 33%;
@@ -148,39 +147,42 @@ aside {
 
   .modal-content {
     background-color: white;
-    
     border-radius: 5px;
   }
-  
+
   .modal-header {
     background-color: $color-primary;
     font-size: $font-size-medium;
     color: $color-white;
     text-align: start;
-    padding: 10px; 
+    padding: 10px;
     font-size: $font-size-medium;
     font-weight: bold;
-    
+
   }
+
   .modal-body {
     min-width: 300px;
     font-size: $font-size-small;
     border-bottom: solid 1px $color-light;
-    padding: 20px 50px; 
-    
+    padding: 20px 50px;
+
   }
+
   .modal-footer {
-    padding: 10px; 
-   display: flex;
-   justify-content: space-between;
-    
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+
   }
 }
-.acoes__view{
+
+.acoes__view {
   background-color: $color-light;
-  
+
 }
-.sem__lista{
+
+.sem__lista {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -188,9 +190,9 @@ aside {
   height: 90%;
   font-size: $font-size-medium;
   flex-wrap: nowrap;
- 
-  strong{
-    color:$color-primary;  
+
+  strong {
+    color: $color-primary;
   }
 
 }

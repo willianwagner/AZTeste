@@ -37,7 +37,7 @@ import LoadIcon from '@/components/atoms/LoadIcon.vue';
 import httpClient from '@/constants';
 import TableList from '@/components/organisms/TableList.vue';
 import SemLista from '@/components/atoms/SemLista.vue';
-
+import {montarPaginacao} from '@/utils/helpers'
 
 export default {
     name: 'IndexCandidatos',
@@ -100,8 +100,9 @@ export default {
             try {
                 const response = await httpClient.get('/users');
                 this.listaCandidatos = response.data
-
-                console.log(response);
+                const dadosPagicacao = montarPaginacao(response)    
+         
+                this.$store.dispatch('atualizarPaginacao', dadosPagicacao)
                 this.isLoad = !this.isLoad
 
 

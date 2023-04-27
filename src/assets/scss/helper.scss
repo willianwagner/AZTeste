@@ -147,3 +147,28 @@
     height: auto;
 }
 
+.color-danger {
+    color: $color-danger;
+}
+
+.color-success {
+    color: $color-success;
+}
+
+.bg-danger {
+    background-color: $color-danger;
+}
+
+.bg-success {
+    background-color: $color-success;
+}
+
+.font-small{
+    font-size: $font-size-small;
+}
+.font-medium{
+    font-size: $font-size-medium;
+}
+.font-large{
+    font-size: $font-size-large;
+}

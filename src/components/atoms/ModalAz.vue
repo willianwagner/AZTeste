@@ -15,18 +15,26 @@
 </template>
   
 <script>
+import { ref } from 'vue';
+
 export default {
-    name: "ModalAz",
-    props: {
-        show: {
-            type: Boolean,
-            default: false
-        },
-        titulo: {
-            type: String,
-            default: ''
-        }
+  name: 'ModalAz',
+  props: {
+    show: {
+      type: Boolean,
+      default: false
+    },
+    titulo: {
+      type: String,
+      default: ''
     }
+  },
+  setup(props) {
+    const showModal = ref(props.show);    
+    return {
+      showModal
+    }
+  }
 }
 </script>
   

@@ -27,8 +27,7 @@ export default createStore({
       localStorage.setItem('user', JSON.stringify(state.user))
     },
 
-    limpaToken(state) {
-      console.log(state,'mut')
+    limpaToken(state) {    
       state.user = {}
       localStorage.removeItem('user');      
     },
@@ -40,6 +39,10 @@ export default createStore({
 
     limpaNotificacao(state, data) {
       state.notificacao = state.notificacao.filter(notificacao => notificacao.id != data)
+    },
+
+    atualizaPaginacao(state,data){
+      state.paginacao = data
     }
   },
   actions: {
@@ -63,6 +66,10 @@ export default createStore({
 
     limparToken({commit}){
       commit('limpaToken')
+    },
+
+    atualizarPaginacao({commit},data){
+      commit('atualizaPaginacao', data)
     }
 
   },
